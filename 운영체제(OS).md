@@ -336,6 +336,9 @@ Suspended(일시 정지): 중기 스케줄러가 프로세스를 스와핑할 �
 Suspended Ready: 메모리에서 디스크로 스와핑되었지만, 다시 실행 가능
 Suspended Waiting: 대기 중이지만 메모리에서 제거
 ```
+
+![image](https://github.com/user-attachments/assets/ffb36005-db3b-426f-9fa4-276127840ea4)
+
 <li> preemptive/non-preemptive 에서 존재할 수 없는 상태가 있을까요?</li>
 
 ```
@@ -356,7 +359,10 @@ Suspended Waiting: 대기 중이지만 메모리에서 제거
 2. Ready → Suspended Ready
 - 그래도 메모리가 부족하면 실행 대기(Ready) 중인 프로세스를 스왑 아웃 (Swap-out)
 - 메모리가 확보되면 다시 Ready 상태로 복귀
-3. Running → Waiting (페이지 폴트 발생 시)
-실행 중인 프로세스가 참조하려는 페이지가 RAM에 없어서 디스크에서 로드해야 하는 경우
+3. New → Suspended Ready
+- 새로운 프로세스가 생성되었지만, 메모리가 부족하여 Suspended Ready 상태에서 대기
+- 메모리가 확보되면 실행 가능
+4. Running → Waiting (페이지 폴트 발생 시)
+- 실행 중인 프로세스가 참조하려는 페이지가 RAM에 없어서 디스크에서 로드해야 하는 경우
 ```
 </ul>
